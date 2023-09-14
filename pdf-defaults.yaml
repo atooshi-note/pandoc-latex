@@ -1,0 +1,138 @@
+# 入力ファイル (配列形式で指定)
+input-files:
+  - content.md
+
+
+# 出力ファイル (単一アイテムで指定)
+output-file: content.pdf
+#output-file: content.tex
+
+# --pdf-engine オプション
+pdf-engine: lualatex
+
+
+#epub-subdirectory: EPUB
+#epub-fonts:
+  #- times.ttf
+
+# メタデータ
+metadata:
+  title: "TITLEタイトル"
+  subtitle: "SUBTITLEサブタイトル"
+  author:
+  - 著者1  
+  - 著者2
+  #date: "2023/07/25"
+  date: |
+    提出日: \today
+  keywords: "keywords"
+  abstract-title: abstract-titleアブストラクトタイトル
+  abstract: |
+    アブストラクトの中身  
+    abstractの中身
+  figureTitle: "図 "
+  tableTitle: "表 "
+  listingTitle: "コード "
+  figPrefix: "図."
+  eqnPrefix: "式."
+  tblPrefix: "表."
+  lstPrefix: "コード."
+
+# テンプレート変数
+variables:
+  documentclass: ltjsarticle
+  #luatexjapresetoptions: haranoaji
+  fontsize: 10pt
+  #classoption: pandoc
+  classoption:
+    - pandoc
+    - titlepage
+
+  mainfont: times.ttf
+  #mainfont: YuGothicUI-Regular-02.ttf
+  #mainfont: "Times New Roman"
+  mainfontoptions:
+    - Path=./fonts/times/
+    - BoldFont=timesbd.ttf
+    - ItalicFont=timesi.ttf
+    - BoldItalicFont=timesbi.ttf
+
+  #sansfont: FiraCode-Regular.ttf
+  #sansfontoptions:
+    #- Path=./fonts/
+
+  #monofont: Quicksand-Regular.ttf
+  #monofontoptions:
+    #- Path=./fonts/
+
+  CJKmainfont: HaranoAjiGothic-Regular.otf
+  #CJKmainfont: IPAexGothic
+  CJKoptions:
+    - Path=./fonts/HaranoAjiFonts-master/
+    - BoldFont=HaranoAjiGothic-Bold.otf
+    #- ItalicFont=meiryo002_ita.ttf
+    #- BoldItalicFont=meiryob002_bold_ita.ttf
+
+
+  # リンクに色を付ける ex)表.1 の1に赤色がつく
+  colorlinks: true
+
+  # 字下げ
+  indent: true
+
+  # 余白
+  geometry:
+    - top=20mm
+    - right=24mm
+    - left=24mm
+    - bottom=20mm
+    - heightrounded
+  
+  # headerに章とページ番号が記載される
+  pagestyle: headings
+  papersize: a4
+  chaptersDepth: 2
+
+  # 採番接頭辞・接尾辞の追加
+  header-includes:
+    - \renewcommand{\thesection}{第\arabic{section}章}
+    # - \renewcommand{\thesubsection}{第\arabic{subsection}節}
+    # - \renewcommand{\thesubsubsection}{第\arabic{subsubsection}項}
+    - \renewcommand{\thesubsection}{\arabic{section}-\arabic{subsection}}
+    - \renewcommand{\thesubsubsection}{\arabic{section}-\arabic{subsection}-\arabic{subsubsection}}
+
+# ヘッダーファイルをインクルード
+include-in-header: 
+  - header.tex
+
+listings: true
+
+# 目次
+table-of-contents: true
+
+# 目次出しの深さ
+toc-depth: 3
+
+# 見出しの採番
+number-sections: true
+
+# 単一ファイルで出力
+standalone: true
+
+# pngファイルのdpi指定
+dpi: 300
+
+# 空白行について
+# defaultはauto
+wrap: auto
+#wrap: none
+#wrap: preserve
+
+# コードブロックの背景
+highlight-style: tango
+
+
+# 各種フィルタ
+filters:
+  #- /usr/lib/pandoc-crossref
+  - pandoc-crossref

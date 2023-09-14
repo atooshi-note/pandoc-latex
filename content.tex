@@ -1,0 +1,416 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+\PassOptionsToPackage{space}{xeCJK}
+%
+\documentclass[
+  10pt,
+  a4paper,
+  pandoc,
+  titlepage]{ltjsarticle}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[Path=./fonts/times/,BoldFont=timesbd.ttf,ItalicFont=timesi.ttf,BoldItalicFont=timesbi.ttf]{times.ttf}
+  \ifxetex
+    \usepackage{xeCJK}
+    \setCJKmainfont[Path=./fonts/HaranoAjiFonts-master/,BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
+  \fi
+  \ifluatex
+    \usepackage[]{luatexja-fontspec}
+    \setmainjfont[Path=./fonts/HaranoAjiFonts-master/,BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
+  \fi
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={TITLEタイトル},
+  pdfauthor={著者1; 著者2},
+  pdfkeywords={keywords},
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[top=20mm,right=24mm,left=24mm,bottom=20mm,heightrounded]{geometry}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\pagestyle{headings}
+\renewcommand{\thesection}{第\arabic{section}章}
+\renewcommand{\thesubsection}{\arabic{section}-\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}-\arabic{subsection}-\arabic{subsubsection}}
+\usepackage{listings}
+\usepackage{xcolor}
+ 
+\lstset{
+    basicstyle=\ttfamily,
+    keywordstyle=\color[RGB]{33,74,135}\bfseries,
+    stringstyle=\color[RGB]{79,153,5},
+    commentstyle=\color[RGB]{143,89,2}\itshape,
+    numberstyle=\footnotesize,
+    numbers=none,
+    stepnumber=1,
+    numbersep=15pt,
+    backgroundcolor=\color[RGB]{251,251,251},
+    frame=single,
+    frameround=ffff,
+    framesep=5pt,
+    rulecolor=\color[RGB]{148,150,152}, 
+    breaklines=true,
+    breakautoindent=true,
+    breakatwhitespace=true,
+    breakindent=25pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=t,%キャプションの場所("tb"ならば上下両方に記載)
+    linewidth=\textwidth,
+}
+\renewcommand{\lstlistingname}{コード}
+
+\title{TITLEタイトル}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{SUBTITLEサブタイトル}
+\author{著者1 \and 著者2}
+\date{提出日: \textbackslash today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+アブストラクトの中身 abstractの中身
+\end{abstract}
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\clearpage
+
+\hypertarget{contents-ux30b3ux30f3ux30c6ux30f3ux30c4}{%
+\section{contents
+コンテンツ}\label{contents-ux30b3ux30f3ux30c6ux30f3ux30c4}}
+
+\hypertarget{about-run-pdfux751fux6210}{%
+\subsection{about run pdf生成}\label{about-run-pdfux751fux6210}}
+
+はみだす↓
+
+\begin{lstlisting}
+PS C:> docker run -it --rm --volume "$(pwd):/data" manned2665/mypandoc -d pdf-defaults.yaml
+\end{lstlisting}
+
+\hypertarget{about-ux66f8ux304dux65b9}{%
+\subsection{about 書き方}\label{about-ux66f8ux304dux65b9}}
+
+contents contents contents contents contents contents contents contents
+contents contents contents contents contents contents contents contents
+contents contents contents contents contents contents contents contents
+contents contents contents contents contents contents contents contents
+contents contents contents contents contents contents contents contents
+contents contents contents.\\
+本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ本文だよ
+
+\emph{斜体syatai}\\
+\textbf{太字HUTOJIDAYO}\\
+\textbf{\emph{太字斜体HUTOJIsyatai}}
+
+URLだよ\\
+https://aaaaaaaaaaaaaaaaaaaa-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\
+\href{https://aaaaaaaaaaaaaaaaaaaa-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}{aaaaaaaaaaaaaaaaaaaa-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}
+
+はみ出す↓（欧文で単語区切りが無いため）\\
+aaaaaaaaaaaaaaaaaaaa-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+はみ出さない↓（欧文で単語区切りがあるため自動改行）
+
+LaTeX is a document markup language that is particularly well suited for
+the publication of mathematical and scientific articles.
+
+Pandoc is a free-software document converter, widely used as a writing
+tool (especially by scholars){[}2{]} and as a basis for publishing
+workflows.{[}3{]} It was created by John MacFarlane, a philosophy
+professor at the University of California, Berkeley.
+
+はみださない↓（和文）\\
+あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ\\
+さ\\
+き
+
+\clearpage
+
+\hypertarget{about-fig-ux56f3}{%
+\subsection{about fig 図}\label{about-fig-ux56f3}}
+
+\begin{figure}
+\hypertarget{fig:sugoi}{%
+\centering
+\includegraphics{./images/test.png}
+\caption[すごい図]{すごい図\footnotemark{}}\label{fig:sugoi}
+}
+\end{figure}
+\footnotetext{図のタイトルにも注釈をつけられる}
+
+すごい図.~\ref{fig:sugoi}を貼り付けたよ。\\
+図はスペースいらない
+
+\hypertarget{about-table-ux8868}{%
+\subsection{about table 表}\label{about-table-ux8868}}
+
+\hypertarget{tbl:AND_yeah}{}
+\begin{longtable}[]{@{}lll@{}}
+\caption{\label{tbl:AND_yeah}AND}\tabularnewline
+\toprule
+A & B & X\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+A & B & X\tabularnewline
+\midrule
+\endhead
+0 & 0 & 0\tabularnewline
+0 & 1 & 0\tabularnewline
+1 & 0 & 0\tabularnewline
+1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+This is 表.~\ref{tbl:AND_yeah}.\\
+表はスペースが\textbf{必要}
+
+\hypertarget{about-equations-ux5f0f}{%
+\subsection{about equations 式}\label{about-equations-ux5f0f}}
+
+\protect\hypertarget{eq:ainshutain}{}{\begin{equation}
+a^2+b^2=c^2
+\label{eq:ainshutain}\end{equation}}
+
+This is 式.~\ref{eq:ainshutain} .\\
+式はスペースいらない
+
+\(\alpha, \beta, \gamma, \delta, \Delta, \varepsilon, \theta, \lambda, \mu, \nu, \pi, \rho, \sigma, \Sigma, \tau, \phi, \omega\)
+
+\[\frac{\partial f}{\partial y} \frac{d f}{d x}\]
+
+\hypertarget{about-commemts-ux30b3ux30e1ux30f3ux30c8-ux6ce8ux91c8}{%
+\subsection{about commemts コメント
+注釈}\label{about-commemts-ux30b3ux30e1ux30f3ux30c8-ux6ce8ux91c8}}
+
+This is comment\footnote{This is comment.}.
+
+\clearpage
+
+\hypertarget{about-code-block-ux30b3ux30fcux30c9ux30d6ux30edux30c3ux30af}{%
+\subsection{about code block
+コードブロック}\label{about-code-block-ux30b3ux30fcux30c9ux30d6ux30edux30c3ux30af}}
+
+pythonコードをコード.~\ref{lst:code1}に示す。
+
+\begin{codelisting}
+
+\caption{test.py}
+
+\begin{lstlisting}[language=Python, numbers=left, firstnumber=10, caption={test.py}, label=lst:code1]
+print("Hello World")
+
+from os import path
+
+# 作業フォルダの下に"mybook"を連結したパスを生成
+p = path.abspath("mybook")
+
+print(p)
+# C:\Users\blogcat\mybook
+
+import pandas as pd
+import os
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import math
+import numpy as np
+#import seaborn as sns
+#sns.set()
+%matplotlib inline
+
+os.chdir("D:") # 作業フォルダ パワーメータからのcsvはここに置く
+
+df = pd.read_csv('M3390000.csv')
+#print(df.head())
+df=df.drop(columns=['Date', 'Time','Status','Urms3','Irms3','P1','P2','P3','Eff1','Eff2','Loss1','Loss2'])
+#print(df)
+df['Pi']=df['Urms1']*df['Irms1']
+df['Po']=df['Urms2']*df['Irms2']
+df['Vo/Vi']=df['Urms2']/df['Urms1']
+df['Ro']=df['Urms2']/df['Irms2']
+df['eff']=round(df['Po']/df['Pi']*100,2)
+df['Loss']=df['Pi']-df['Po']
+df = df.sort_values(by=['Urms1','Ro'], ascending=[True,True])
+#df = df.sort_values('eff',ascending=False)
+df = df.reset_index(drop=True)
+print(df.head())
+
+with open('out.txt','wt')as fout:
+    print('max eff : '+str(df['eff'].max()),file=fout)
+    print('index : '+str(df['eff'].idxmax()),file=fout)
+print('max eff : '+str(df['eff'].max()))
+print('index : '+str(df['eff'].idxmax()))
+
+#df.plot.line(x='Ro',subplots=True,layout=(3,4),sharex=True,marker='o')
+df.to_csv('out.csv',encoding='shift jis')
+
+df400=df[(df['Urms1'] > 380) & (df['Urms1'] < 420)]
+df300=df[(df['Urms1'] > 280) & (df['Urms1'] < 320)]
+df200=df[(df['Urms1'] > 180) & (df['Urms1'] < 220)]
+df100=df[(df['Urms1'] > 80) & (df['Urms1'] < 120)]
+
+# 行列番号 321 3行2列1番
+fig = plt.figure(figsize=(8,7))
+ax = fig.add_subplot(321)
+ax4 = fig.add_subplot(322,sharey=ax)
+ax1 = fig.add_subplot(323,sharex=ax)
+ax5 = fig.add_subplot(324,sharex=ax4,sharey=ax1)
+ax2 = fig.add_subplot(325,sharex=ax)
+ax3 = fig.add_subplot(326,sharex=ax4,sharey=ax2)
+'''
+# 2行3列 横並び
+fig = plt.figure(figsize=(10,5))
+ax = fig.add_subplot(231)
+ax4 = fig.add_subplot(234,sharey=ax)
+ax1 = fig.add_subplot(232,sharex=ax)
+ax5 = fig.add_subplot(235,sharex=ax4,sharey=ax1)
+ax2 = fig.add_subplot(233,sharex=ax)
+ax3 = fig.add_subplot(236,sharex=ax4,sharey=ax2)
+'''
+
+ax.set_xlim(-100,2100)
+ax4.set_xlim(90,410)
+
+ax.set_ylim(91,100)
+ax.set_yticks(np.arange(91, 101, 1))
+ax1.set_ylim(0.97,1.03)
+ax1.set_yticks(np.arange(0.97, 1.03, 0.01))
+ax2.set_ylim(0,40)
+ax2.set_yticks(np.arange(0, 45, 5))
+
+ax.set_xlabel('Output power [W]', style ="italic")
+ax1.set_xlabel('Output power [W]', style ="italic")
+ax2.set_xlabel('Output power [W]', style ="italic")
+ax3.set_xlabel('Input voltage [V]', style ="italic")
+ax4.set_xlabel('Input voltage [V]', style ="italic")
+ax5.set_xlabel('Input voltage [V]', style ="italic")
+
+ax.set_ylabel('Efficiency [%]',style='italic')
+ax1.set_ylabel('Vo/Vi',style='italic')
+ax2.set_ylabel('Loss [W]',style='italic')
+ax3.set_ylabel('Loss [W]',style='italic')
+ax4.set_ylabel('Efficiency [%]',style='italic')
+ax5.set_ylabel('Vo/Vi',style='italic')
+"""
+"""
+ax.grid(color = "gray", linestyle="--")
+ax1.grid(color = "gray", linestyle="--")
+ax2.grid(color = "gray", linestyle="--")
+ax3.grid(color = "gray", linestyle="--")
+ax4.grid(color = "gray", linestyle="--")
+ax5.grid(color = "gray", linestyle="--")
+
+markers1 = ["s", "o", "v", "^", "<", ">"]
+vidatas = [df400,df300,df200,df100]
+vilabels = ['Vi=400V','Vi=300V','Vi=200V','Vi=100V']
+offset=0.5
+
+for i in range(len(vidatas)):
+    ax.plot('Po','eff',data=vidatas[i],label=vilabels[i],marker=markers1[i])
+    ax1.plot('Po','Vo/Vi',data=vidatas[i],label=vilabels[i],marker=markers1[i])
+    ax2.plot('Po','Loss',data=vidatas[i],label=vilabels[i],marker=markers1[i])
+    ax3.plot('Urms1','Loss',data=vidatas[i],label=vilabels[i],marker=markers1[i])
+    ax4.plot('Urms1','eff',data=vidatas[i],label=vilabels[i],marker=markers1[i])
+    ax5.plot('Urms1','Vo/Vi',data=vidatas[i],label=vilabels[i],marker=markers1[i])
+
+    x=vidatas[i].at[vidatas[i]['eff'].idxmax(),'Po'] # effが最大値を取るときのPo
+    ax.text(x,vidatas[i]['eff'].max()+offset,vidatas[i]['eff'].max())
+
+ax.axhspan(98.5,100,alpha=0.3,color='pink')
+ax4.axhspan(98.5,100,alpha=0.3,color='pink')
+
+ax.legend()
+fig.tight_layout()
+fig.savefig('vs_Vi.png',dpi=200)
+fig.show()
+\end{lstlisting}
+
+\end{codelisting}
+
+\hypertarget{ux53c2ux8003ux6587ux732e}{%
+\section*{参考文献}\label{ux53c2ux8003ux6587ux732e}}
+\addcontentsline{toc}{section}{参考文献}
+
+\passthrough{\lstinline!\{-\}!}
+をつけるとこのセクションには見出しに通し番号がつかなくなる
+
+\begin{itemize}
+\tightlist
+\item
+  箇条書き
+\item
+  箇条書き
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ネスト
+  \item
+    ネスト
+  \item
+    ネスト
+  \end{itemize}
+\end{itemize}
+
+\end{document}
